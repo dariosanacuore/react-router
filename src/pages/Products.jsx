@@ -17,7 +17,13 @@ export default function Products() {
         <section>
             <h2>I prodotti sono:</h2>
             {products.map((product) => (
-                <li key={product.id}>{product.title}</li>
+                <li key={product.id}>{product.title}
+                    <ul>
+                        <li>{product.price}</li>
+                        <li>{product.description}</li>
+                        <li>{product.category}</li>
+                    </ul>
+                </li>
             ))}
 
         </section>
