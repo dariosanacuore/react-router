@@ -19,10 +19,7 @@ export default function Products() {
             {products.map((product) => (
                 <li key={product.id}>{product.title}</li>
             ))}
-            <div className="d-flex gap-3">
-                <Link to="/">Vai nella homepage</Link>
-                <Link to="/chi-siamo">Vai nella pagina di chi siamo</Link>
-            </div>
+
         </section>
     );
 }
