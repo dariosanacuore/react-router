@@ -14,7 +14,8 @@ export default function SingleProduct() {
             })
             .catch((err) => {
                 console.log(err);
-                if (err.status === 404) {
+                alert("Prodotto non esiste");
+                if (err.response && err.status === 404) {
                     navigate("/prodotti");
                 }
             });
@@ -23,11 +24,11 @@ export default function SingleProduct() {
 
     return (
         <>
-            {products !== null && (
+            {products && (
                 <div>
                     <h1>{products.title}</h1>
-                    <p>Prezzo:{products.price}</p>
-                    <p>Descrizione:{products.description}</p>
+                    <p>Prezzo: {products.price}</p>
+                    <p>Descrizione: {products.description}</p>
                 </div>
             )}
         </>
