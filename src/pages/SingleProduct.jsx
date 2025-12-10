@@ -32,6 +32,7 @@ export default function SingleProduct() {
             {loading === true && "Loading..."}
             {products && (
                 <div>
+                    <img src={products.image} width="300" height="300" />
                     <h1>{products.title}</h1>
                     <p>Prezzo: {products.price}</p>
                     <p>Descrizione: {products.description}</p>
