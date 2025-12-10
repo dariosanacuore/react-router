@@ -1,0 +1,37 @@
+import { useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+export default function SingleProduct() {
+    const { id } = useParams();
+    const [products, setProducts] = useState(null);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        axios.get(`https://fakestoreapi.com/products/${id}`)
+            .then((resp) => {
+                setProducts(resp.data);
+            })
+            .catch((err) => {
+                console.log(err);
+                if (err.status === 404) {
+                    navigate("/prodotti");
+                }
+            });
+    }, [id]);
+
+
+    return (
+        <>
+            {products !== null && (
+                <div>
+                    <h1>{products.title}</h1>
+                    <p>Prezzo:{products.price}</p>
+                    <p>Descrizione:{products.description}</p>
+                </div>
+            )}
+        </>
+    );
+
+
+}

@@ -8,6 +8,7 @@ import Homepage from "./pages/Homepage";
 import About from "./pages/About";
 import Products from "./pages/Products";
 import DefaultLayout from "./layouts/DefaultLayout";
+import SingleProduct from './pages/SingleProduct'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
             <Route path="/chi-siamo" element={<About />} />
             <Route path="/prodotti">
               <Route path="" element={<Products />} />
+              <Route path=":id" element={<SingleProduct />} />
             </Route>
           </Route>
         </Routes>
