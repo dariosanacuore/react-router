@@ -19,7 +19,9 @@ function App() {
           <Route element={<DefaultLayout />}>
             <Route path="/" element={<Homepage />} />
             <Route path="/chi-siamo" element={<About />} />
-            <Route path="/prodotti" element={<Products />} />
+            <Route path="/prodotti">
+              <Route path="" element={<Products />} />
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>
