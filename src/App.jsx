@@ -8,6 +8,7 @@ import Homepage from "./pages/Homepage";
 import About from "./pages/About";
 import Products from "./pages/Products";
 import DefaultLayout from "./layouts/DefaultLayout";
+import NotFound from "./pages/NotFound";
 import SingleProduct from './pages/SingleProduct'
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
               <Route path="" element={<Products />} />
               <Route path=":id" element={<SingleProduct />} />
             </Route>
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </BrowserRouter>

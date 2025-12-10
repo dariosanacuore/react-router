@@ -5,9 +5,11 @@ import { useEffect, useState } from "react";
 export default function SingleProduct() {
     const { id } = useParams();
     const [products, setProducts] = useState(null);
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
+        setLoading(true);
         axios.get(`https://fakestoreapi.com/products/${id}`)
             .then((resp) => {
                 setProducts(resp.data);
@@ -18,12 +20,16 @@ export default function SingleProduct() {
                 if (err.response && err.status === 404) {
                     navigate("/prodotti");
                 }
+            })
+            .finally(() => {
+                setLoading(false);
             });
     }, [id]);
 
 
     return (
         <>
+            {loading === true && "Loading..."}
             {products && (
                 <div>
                     <h1>{products.title}</h1>
